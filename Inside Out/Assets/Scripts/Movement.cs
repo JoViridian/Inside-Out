@@ -1,0 +1,41 @@
+using UnityEngine;
+
+public class Movement : MonoBehaviour
+{
+    public bool camState;
+    public Camera camSky;
+    public Camera camGround;
+    public CharacterController player;
+    public float speedMultiplier = 1;
+
+    private void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.forward));
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.back));
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.left));
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.right));
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(0, 1, 0);
+        }
+    }
+}
