@@ -1,7 +1,10 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Manager Set-up
+
     // GM's singleton for easy access throughout the whole project
     private static GameManager instance;
     public static GameManager Instance { get { return instance; } }
@@ -14,8 +17,11 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    // Actual Script
+
     public GameObject infoBox;
     [SerializeField] private AudioSource sourcePrefab;
+    [HideInInspector] public bool camState;
 
     void Update()
     {

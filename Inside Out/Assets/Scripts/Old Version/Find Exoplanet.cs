@@ -34,7 +34,7 @@ public class FindExoplanet : MonoBehaviour
         }
         else
         {
-            Debug.Log("Reset");
+            //Debug.Log("Reset");
             timer = orbitTimer;
         }
     }

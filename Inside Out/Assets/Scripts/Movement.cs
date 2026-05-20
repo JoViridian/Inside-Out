@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public bool camState;
-    public Camera camSky;
-    public Camera camGround;
     public CharacterController player;
     public float speedMultiplier = 1;
 
