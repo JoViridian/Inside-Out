@@ -6,6 +6,8 @@ public class CameraMouse : MonoBehaviour
     public float sensitivity = 1;
     public float clampAngleTop;
     public float clampAngleBot;
+    public float clampAngleLeft;
+    public float clampAngleRight;
     private float rotationX;
     private float rotationY;
 
@@ -28,6 +30,7 @@ public class CameraMouse : MonoBehaviour
         rotationY += mouseX * sensitivity * Time.deltaTime;
         rotationX -= mouseY * sensitivity * Time.deltaTime;
         rotationX = Mathf.Clamp(rotationX, clampAngleTop, clampAngleBot);
+        rotationY = Mathf.Clamp(rotationY, clampAngleLeft, clampAngleRight);
 
         if (transform.parent != null)
         {

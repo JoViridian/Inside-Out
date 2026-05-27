@@ -1,12 +1,16 @@
 using UnityEngine.Events;
 using UnityEngine;
+using System.Collections;
 
 public class Interact : MonoBehaviour
 {
-    public UnityEvent onClick;
-    public GameObject playerRef;
     public float distAllow;
     private float distInternal;
+    public UnityEvent onClick;
+    public UnityEvent onHover;
+    public UnityEvent onMouseExit;
+    public GameObject playerRef;
+    
 
     private void Update()
     {
@@ -15,14 +19,44 @@ public class Interact : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetKey(KeyCode.Mouse0) && distInternal < distAllow)
+        if (distInternal < distAllow && GameManager.Instance.allowInteract)
         {
-            onClick.Invoke();
-        }
+            onHover.Invoke();
+            //Debug.Log("Detecting");
 
-        if (distInternal < distAllow)
-        {
-            Debug.Log("Hover" + distInternal);
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                StartCoroutine(DelayByOne(onClick));
+            }
         }
+        else
+        {
+            onMouseExit.Invoke();
+        }
+    }
+
+    IEnumerator DelayByOne(UnityEvent a)
+    {
+        GameManager.Instance.allowInteract = false;
+        yield return new WaitForSeconds(0.5f);
+        a?.Invoke();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.allowInteract = true;
+    }
+
+    private void OnMouseExit()
+    {
+        onMouseExit.Invoke();
+        Debug.Log("Mouse Exited");
+    }
+
+    public void TurnOn(GameObject GO)
+    {
+        GO.SetActive(true);
+    }
+
+    public void TurnOff(GameObject GO)
+    {
+        GO.SetActive(false);
     }
 }

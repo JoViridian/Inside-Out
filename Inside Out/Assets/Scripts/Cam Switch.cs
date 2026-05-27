@@ -9,10 +9,12 @@ public class CamSwitch : MonoBehaviour
     void Start()
     {
         GameManager.Instance.camState = false;
+        GameManager.Instance.allowInteract = true;
     }
 
     public void SwapCamera()
     {
+
         if (GameManager.Instance.camState)
         {
             camGround.SetActive(true);

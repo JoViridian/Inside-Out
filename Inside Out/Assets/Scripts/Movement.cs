@@ -5,11 +5,6 @@ public class Movement : MonoBehaviour
     public CharacterController player;
     public float speedMultiplier = 1;
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Input.GetKey(KeyCode.W))

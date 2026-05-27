@@ -1,4 +1,3 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject infoBox;
     [SerializeField] private AudioSource sourcePrefab;
     [HideInInspector] public bool camState;
+    [HideInInspector] public bool allowInteract;
 
     void Update()
     {

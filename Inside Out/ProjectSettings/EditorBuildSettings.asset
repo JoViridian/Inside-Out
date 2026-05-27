@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: f3d40ad33bda1ad47bf5f0b5708fbcb4
   - enabled: 1
+    path: Assets/Scenes/Starview.unity
+    guid: 7b64a225a9528e248a3479d5a07d8b58
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
