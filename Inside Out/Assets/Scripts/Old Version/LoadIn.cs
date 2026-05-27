@@ -17,5 +17,10 @@ public class LoadIn : MonoBehaviour
     {
         timer -= Time.deltaTime;
         image.color = new Color(0, 0, 0, timer);
+
+        if(timer < 0)
+        {
+            gameObject.GetComponent<LoadIn>().enabled = false;
+        }
     }
 }
