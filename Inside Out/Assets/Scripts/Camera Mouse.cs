@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraMouse : MonoBehaviour
@@ -42,7 +41,5 @@ public class CameraMouse : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
-
-            
     }
 }
