@@ -35,6 +35,12 @@ public class Interact : MonoBehaviour
         }
     }
 
+    private void OnMouseExit()
+    {
+        onMouseExit.Invoke();
+        Debug.Log("Mouse Exited");
+    }
+
     IEnumerator DelayByOne(UnityEvent a)
     {
         GameManager.Instance.allowInteract = false;
@@ -42,12 +48,6 @@ public class Interact : MonoBehaviour
         a?.Invoke();
         yield return new WaitForSeconds(0.5f);
         GameManager.Instance.allowInteract = true;
-    }
-
-    private void OnMouseExit()
-    {
-        onMouseExit.Invoke();
-        Debug.Log("Mouse Exited");
     }
 
     public void TurnOn(GameObject GO)
