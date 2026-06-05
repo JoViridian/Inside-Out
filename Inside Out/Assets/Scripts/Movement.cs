@@ -7,6 +7,19 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.camLock)
+        {
+            DoMovement();
+        }
+
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    transform.Rotate(0, 1, 0);
+        //}
+    }
+
+    void DoMovement()
+    {
         if (Input.GetKey(KeyCode.W))
         {
             player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.forward));
@@ -23,11 +36,6 @@ public class Movement : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             player.SimpleMove(speedMultiplier * transform.TransformDirection(Vector3.right));
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, 1, 0);
         }
     }
 }

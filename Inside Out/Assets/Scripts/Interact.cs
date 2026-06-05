@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     public UnityEvent onHover;
     public UnityEvent onMouseExit;
     public GameObject playerRef;
+    public bool delayAction = true;
     
 
     private void Update()
@@ -24,9 +25,13 @@ public class Interact : MonoBehaviour
             onHover.Invoke();
             //Debug.Log("Detecting");
 
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0) && delayAction)
             {
                 StartCoroutine(DelayByOne(onClick));
+            } 
+            else if (Input.GetKey(KeyCode.Mouse0))
+            {
+                onClick.Invoke();
             }
         }
         else

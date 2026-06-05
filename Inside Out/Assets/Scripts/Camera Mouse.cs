@@ -18,7 +18,10 @@ public class CameraMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DoCamMove();
+        if (!GameManager.Instance.camLock)
+        {
+            DoCamMove();
+        }
     }
 
     void DoCamMove()

@@ -10,6 +10,7 @@ public class CamSwitch : MonoBehaviour
     {
         GameManager.Instance.camState = false;
         GameManager.Instance.allowInteract = true;
+        GameManager.Instance.camLock = false;
     }
 
     public void SwapCamera()
@@ -27,5 +28,15 @@ public class CamSwitch : MonoBehaviour
         }
 
         GameManager.Instance.camState = !GameManager.Instance.camState;
+    }
+
+    public void LockCamera()
+    {
+        GameManager.Instance.camLock = true;
+    }
+
+    public void UnlockCamera()
+    {
+        GameManager.Instance.camLock = false;
     }
 }

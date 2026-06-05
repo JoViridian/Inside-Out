@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject infoBox;
     [SerializeField] private AudioSource sourcePrefab;
     [HideInInspector] public bool camState;
+    [HideInInspector] public bool camLock;
     [HideInInspector] public bool allowInteract;
 
     void Update()
