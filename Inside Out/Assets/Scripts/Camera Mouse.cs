@@ -36,13 +36,17 @@ public class CameraMouse : MonoBehaviour
 
         if (transform.parent != null)
         {
+            //Debug.Log("quater" + Quaternion.Euler(transform.parent.rotation.x, transform.rotation.y, transform.parent.rotation.z));
             transform.parent.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+            //Debug.Log(transform.parent.rotation);
             transform.rotation = Quaternion.Euler(rotationX, 0, 0);
+            //Debug.Log(transform.rotation);
             transform.parent.rotation = Quaternion.Euler(0, rotationY, 0);
+            //Debug.Log(transform.parent.rotation);
         }
         else 
         {
-            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
     }
 }

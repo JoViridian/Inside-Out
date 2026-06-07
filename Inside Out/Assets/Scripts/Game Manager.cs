@@ -50,4 +50,23 @@ public class GameManager : MonoBehaviour
         // destroy GO after play time
         Destroy(source.gameObject, clip.length);
     }
+
+    public void PlayClipSimple(AudioClip clip)
+    {
+        // create a new audio source
+        AudioSource source = Instantiate(sourcePrefab);
+
+        // set its variables
+        source.clip = clip;
+        source.volume = 0.5f;
+
+        // play the sound
+        source.Play();
+
+        // ensure it stays alive, say when we reload RN
+        DontDestroyOnLoad(source);
+
+        // destroy GO after play time
+        Destroy(source.gameObject, clip.length);
+    }
 }
