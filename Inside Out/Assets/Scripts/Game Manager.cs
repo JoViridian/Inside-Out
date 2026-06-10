@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool camState;
     [HideInInspector] public bool camLock;
     [HideInInspector] public bool allowInteract;
+    [HideInInspector] public bool zoomedIn;
+    [HideInInspector] public int starAmount;
 
     void Update()
     {

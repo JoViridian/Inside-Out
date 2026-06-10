@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
+    path: Assets/Scenes/Start (Black).unity
     guid: f3d40ad33bda1ad47bf5f0b5708fbcb4
+  - enabled: 1
+    path: Assets/Scenes/Start (White).unity
+    guid: a3e58b7a039ed304ea9bb2e5e3d99320
+  - enabled: 0
+    path: Assets/Scenes/Intro.unity
+    guid: 68b9f8a4a7e71614db86baa6fa59db52
   - enabled: 1
     path: Assets/Scenes/Starview.unity
     guid: 7b64a225a9528e248a3479d5a07d8b58

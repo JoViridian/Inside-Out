@@ -23,7 +23,7 @@ public class Interact : MonoBehaviour
         if (distInternal < distAllow && GameManager.Instance.allowInteract)
         {
             onHover.Invoke();
-            //Debug.Log("Detecting");
+            Debug.Log("Detecting:" + distInternal + "/" + transform.position);
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && delayAction)
             {

@@ -5,11 +5,13 @@ public class Zoom : MonoBehaviour
 {
     public Camera cam;
     public GameObject lens;
+    public AudioClip clip;
     private float lensScale;
 
     private void Start()
     {
         //lensScale = 1.25f;
+        GameManager.Instance.zoomedIn = false;
     }
 
     // Update is called once per frame
@@ -29,5 +31,19 @@ public class Zoom : MonoBehaviour
         //Mathf.Clamp(lensScale, 1.25f, 1.5f);
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30, 60);
         //lens.transform.localScale = new Vector3(lensScale, lensScale, lensScale);
+
+        if (cam.fieldOfView <= 33)
+        {
+            GameManager.Instance.zoomedIn = true;
+        }
+        else
+        {
+            GameManager.Instance.zoomedIn = false;
+        }
+    }
+
+    public void ZoomClick()
+    {
+        GameManager.Instance.PlayClip(clip, 0.5f);
     }
 }

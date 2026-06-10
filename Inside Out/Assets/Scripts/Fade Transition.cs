@@ -19,7 +19,7 @@ public class FadeTransition : MonoBehaviour
     {
         if(!GameManager.Instance.allowInteract)
         {
-            image.color = new Color(0, 0, 0, Mathf.Abs(Mathf.Abs(1 - 2 * fadeTimerInt) - 1));
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Abs(Mathf.Abs(1 - 2 * fadeTimerInt) - 1));
             fadeTimerInt -= Time.deltaTime;
         }
         else

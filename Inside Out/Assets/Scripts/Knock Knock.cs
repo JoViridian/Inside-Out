@@ -10,7 +10,8 @@ public class KnockKnock : MonoBehaviour
     public AudioClip knock;
     public List<Sprite> newspaper;
     public UnityEvent onActive;
-    private int imageCount;
+    public UnityEvent badEnd;
+    [HideInInspector] public int imageCount;
     private float timer;
     private bool interacted;
     public float timerRepeat;
@@ -19,6 +20,7 @@ public class KnockKnock : MonoBehaviour
     void Start()
     {
         imageCount = 0;
+        GameManager.Instance.starAmount = 0;
         timer = timerRepeat;
         interacted = false;
         imageMain = imagePopUp.GetComponent<Image>();
@@ -27,14 +29,23 @@ public class KnockKnock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.camState && !interacted && imageCount < newspaper.Count)
+        if (GameManager.Instance.camState && imageCount < newspaper.Count)
         {
             DoTimer();
-            Debug.Log("Countdown");
+            //Debug.Log("Countdown");
         }
 
-        imageMain.sprite = newspaper[imageCount];
-        Debug.Log(imageCount);
+        if (imageCount <= newspaper.Count)
+        {
+            imageMain.sprite = newspaper[imageCount];
+            //Debug.Log(imageCount);
+        }
+        else
+        {
+            imageMain.sprite = newspaper[newspaper.Count];
+        }
+
+        GameManager.Instance.starAmount = imageCount;
     }
 
     void DoTimer()
@@ -57,12 +68,21 @@ public class KnockKnock : MonoBehaviour
 
     void DoMaxCheck()
     {
-        if (imageCount < newspaper.Count - 1)
+        if (imageCount < newspaper.Count && !interacted)
         {
-            imageCount++;
             SwapPolarity();
             GameManager.Instance.PlayClip(knock, 1);
             onActive.Invoke();
         }
+        else
+        {
+            badEnd.Invoke();
+        }
+    }
+
+    public void UpdatePaper()
+    {
+        imageCount++;
+        interacted = !interacted;
     }
 }

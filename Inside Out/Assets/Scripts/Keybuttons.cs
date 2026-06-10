@@ -13,7 +13,7 @@ public class Keybuttons : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.Instance.allowInteract && onPressLeft != null && GameManager.Instance.camState)
         {
-            //CheckForDelay(onPressLeft);
+            onPressLeft.Invoke();
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && bypassState && onPressLeft != null)
         {
