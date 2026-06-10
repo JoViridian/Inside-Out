@@ -50,7 +50,7 @@ public class StarTypeNew : MonoBehaviour
                 if (planetB.DoDiscovery())
                 {
                     Instantiate(newInfo);
-                    GameManager.Instance.PlayClip(popUpSound, 0.2f);
+                    GameManager.Instance.PlayClip(popUpSound, 1f);
                 }
 
                 infoGainedB = planetB.DoGiveInfo();

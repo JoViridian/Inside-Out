@@ -2848,7 +2848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CircleCamera
   sensitivity: 500
-  clampRadius: 65
+  clampRadius: 75
 --- !u!1 &333679943
 GameObject:
   m_ObjectHideFlags: 0
@@ -8947,6 +8947,10 @@ PrefabInstance:
     - target: {fileID: 3327684201333642963, guid: 85f9c3b13e0104142b85754bdb4dff5e, type: 3}
       propertyPath: codename
       value: 4 Mico
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327684201333642963, guid: 85f9c3b13e0104142b85754bdb4dff5e, type: 3}
+      propertyPath: distance
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3327684201333642963, guid: 85f9c3b13e0104142b85754bdb4dff5e, type: 3}
       propertyPath: popUpSound
