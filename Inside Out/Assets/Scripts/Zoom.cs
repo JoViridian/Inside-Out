@@ -19,12 +19,12 @@ public class Zoom : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Mouse0))
         {
-            cam.fieldOfView--;
+            cam.fieldOfView -= Time.deltaTime * 120;
             //lensScale += 0.00833f; 
         }
         else
         {
-            cam.fieldOfView++;
+            cam.fieldOfView += Time.deltaTime * 120;
             //lensScale -= 0.00833f;
         }
 

@@ -29,20 +29,21 @@ public class KnockKnock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.camState && imageCount < newspaper.Count)
+        if (GameManager.Instance.camState)
         {
             DoTimer();
             //Debug.Log("Countdown");
         }
 
-        if (imageCount <= newspaper.Count)
+        if (imageCount < newspaper.Count)
         {
             imageMain.sprite = newspaper[imageCount];
             //Debug.Log(imageCount);
         }
         else
         {
-            imageMain.sprite = newspaper[newspaper.Count];
+            imageMain.sprite = newspaper[newspaper.Count - 1];
+            Debug.Log(newspaper.Count);
         }
 
         GameManager.Instance.starAmount = imageCount;

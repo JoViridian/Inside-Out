@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EndScene : MonoBehaviour
 {
+    public MeshRenderer renderer;
     public Animator startEnd;
     public UnityEvent endLoad;
     public AudioClip doorCreak;
@@ -33,6 +34,7 @@ public class EndScene : MonoBehaviour
         //Debug.Log("Start good end");
         image.color = new Color(1,1,1,0);
         startEnd.SetBool("Activate End", true);
+        renderer.enabled = true;
         sequenceStart = true;
         GameManager.Instance.camLock = true;
         GameManager.Instance.PlayClip(doorCreak, 0.5f);
